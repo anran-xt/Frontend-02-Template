@@ -4,7 +4,7 @@
 #### 终结符：+ - * / （ ）Number 
 #### 非终结符：MultiplicativeExpression AddtiveExpression GroupExpression
 
-<code>
+~~~
 
   <MultiplicativeExpression>::=<Number>|<MultiplicativeExpression>"*"<Number>|<MultiplicativeExpression>"/"<Number>|
 
@@ -12,7 +12,7 @@
 
   <GroupExpression>::="("<AddtiveExpression>")"|"("<MultiplicativeExpression>")"|"("<GroupExpression>")"
 
-</code>
+~~~
 
 > 个人理解( )是基于另外两种表达式基础上进行分组，将可能存在的分组列出来就行，仅当包含( )符号时才满足该分组表达式,
 
@@ -23,36 +23,36 @@
 (在执行源文件之前，先把源代码编译成目标代码，跨平台性差，执行速度快)
 
 ### 用Javascript 设计狗咬人的代码
-<code>
+~~~
 
-class Animal{
-  constructor(name){
-    this.name= name
+  class Animal{
+    constructor(name){
+      this.name= name
+    }
+    bite(animal){
+      console.log(this.name + 'bite' + animal.name);
+      animal.health = bad
+    }
   }
-  bite(animal){
-    console.log(this.name + 'bite' + animal.name);
-    animal.health = bad
+
+  class Dog extends Animal{
+    constructor(name){
+      super(name)
+    }
   }
-}
 
-class Dog extends Animal{
-  constructor(name){
-    super(name)
+  class Person extends Animal{
+    constructor(name){
+      super(name)
+      this.health = good
+    }
   }
-}
 
-class Person extends Animal{
-  constructor(name){
-    super(name)
-    this.health = good
-  }
-}
+  let dog = new Dog('dog')
+  let person= new Dog('person')
+  dog.bite(person)
 
-let dog = new Dog('dog')
-let person= new Dog('person')
-dog.bite(person)
-
-</code>
+~~~
 
 > 个人理解：咬的动作仅作为基类Animal的一个行为,该行为要涉及到多方对象,被咬对象会有状态改变
 
